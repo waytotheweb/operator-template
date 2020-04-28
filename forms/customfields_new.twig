@@ -139,7 +139,7 @@
             {% endif %}
         </div>
 		{% if customfield['type'] == 9 %}
-			{% if customfield['name'] starts with 'This is for cxs technical support' %}
+			{% if customfield['name'] starts with 'This is for cxs technical support' and customfield['value'] is not empty %}
 			<h3 class="collapsable">
 				View
 				<span>
