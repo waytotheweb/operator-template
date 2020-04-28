@@ -10,15 +10,6 @@
     </div>
 
     <div>
-        <ul class="sp-tabs sp-flex sp-text-center">
-            <li id="Ticket" class="sp-active sp-w-1/2">
-                <a><i class="fas fa-ticket-alt"></i></a>
-            </li>
-            <li id="User" class="sp-w-1/2">
-                <a><i class="fas fa-user"></i></a>
-            </li>
-        </ul>
-
         <div id="tabTicket" class="sp-tab-content">
             <ul class="sp-ticket-details">
                 <li>
@@ -63,7 +54,7 @@
                                 ) }}
                             </div>
                         </div>
-                        <div class="sp-w-1/2 sp-p-1">
+                        <div class="sp-w-1/2 sp-p-1 sp-hidden">
                             <div class="sp-title">{{ Lang.choice('ticket.priority', 1) }}</div>
                             <div class="sp-detail">
                                 {{ form_select(
@@ -160,7 +151,8 @@
             </ul>
         </div>
 
-        <div id="tabUser" class="sp-tab-content sp-hidden">
+        <div id="tabUser" class="sp-tab-content">
+			<br>
             {% include 'operator.' ~ template ~ '.ticket.ticket_sidebar_user' %}
         </div>
     </div>
@@ -168,7 +160,7 @@
 
 {{ View.fireHook('operator.sidebar_ticket') }}
 
-<div class="sp-sidebox {% if customfields is empty %}sp-hidden{% endif %}">
+<div class="sp-sidebox sp-hidden">
     <div class="sp-collapsible sp-flex" id="ticketCustomfieldSidebox">
         <div class="sp-icon">
             <i class="fas fa-file-alt"></i>
