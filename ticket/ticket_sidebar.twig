@@ -54,17 +54,6 @@
                                 ) }}
                             </div>
                         </div>
-                        <div class="sp-w-1/2 sp-p-1 sp-hidden">
-                            <div class="sp-title">{{ Lang.choice('ticket.priority', 1) }}</div>
-                            <div class="sp-detail">
-                                {{ form_select(
-                                    'priority',
-                                    priorities.pluck('name', 'id'),
-                                    ticket.priority_id,
-                                    can_update_ticket(auth_user(), ticket) ? {} : {'disabled': 'disabled'}
-                                ) }}
-                            </div>
-                        </div>
                     </div>
                 </li>
                 {% if can_update_ticket(auth_user(), ticket) %}
@@ -159,26 +148,3 @@
 </div>
 
 {{ View.fireHook('operator.sidebar_ticket') }}
-
-<div class="sp-sidebox sp-hidden">
-    <div class="sp-collapsible sp-flex" id="ticketCustomfieldSidebox">
-        <div class="sp-icon">
-            <i class="fas fa-file-alt"></i>
-        </div>
-        <h3>{{ Lang.choice('customfield.customfield', 2) }}</h3>
-        <div class="sp-chevron">
-            <i class="fas fa-chevron-down" aria-hidden="true"></i>
-        </div>
-    </div>
-
-    <div>
-        <form>
-            <div class="customfields">
-                {% include 'operator.' ~ template ~ '.forms.custom_fields' %}
-            </div>
-            {% if can_update_ticket(auth_user(), ticket) %}
-                <button class="save-fields sp-button-submit" type="button">{{ Lang.get('general.save') }}</button>
-            {% endif %}
-        </form>
-    </div>
-</div>
