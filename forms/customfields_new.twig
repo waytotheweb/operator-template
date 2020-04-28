@@ -113,7 +113,7 @@
 				<button type="button" class="clipbtn fa fa-clipboard tooltip" data-description="Copied to Clipboard"  data-clipboard-text="{{ customfield['value'] }}"></button>
 
             {% elseif customfield['type'] == 9 %}
-                {{ form_textarea('customfield[' ~ customfield['id'] ~ ']', customfield['value'],
+                {{ form_textarea('customfield[' ~ customfield['id'] ~ ']', customfield['value']|replace({'<p>':'','</p>':'\n'})|raw,
                     (customfield['value'] is not empty and customfield['locked'] ? {'disabled': 'disabled'} : {})) }}
 
             {% elseif customfield['type'] == 10 %}
