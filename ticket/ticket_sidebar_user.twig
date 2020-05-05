@@ -57,6 +57,7 @@
     </a>
 </div>
 
+<i class="fas fa-user fa-fw"></i> &nbsp; {{ ticket.user.formatted_name }}<br />
 {% if ticket.user.email|default is not empty %}
     {% if Config.get('settings.organisations_enabled') and ticket.user.organisation is not empty %}
         <i class="fas fa-building fa-fw"></i> &nbsp; <a href="{{ ticket.user.organisation.url|raw }}">{{ ticket.user.organisation.name }}</a><br />
